@@ -20,5 +20,8 @@ A scheduled workflow runs daily at 16:00 UTC, appends a Mountain Time timestampe
 
 ## Sources
 
+- <a href="https://en.wikipedia.org/wiki/Goodhart%27s_law" target="_blank" rel="noopener noreferrer">Wikipedia, "Goodhart's law"</a>
+- <a href="https://en.wikipedia.org/wiki/Campbell%27s_law" target="_blank" rel="noopener noreferrer">Wikipedia, "Campbell's law"</a>
+- <a href="https://en.wikipedia.org/wiki/Goodhart%27s_law#Generalization" target="_blank" rel="noopener noreferrer">Wikipedia, "Goodhart's law" generalization section</a>
 - <a href="https://jmde.com/index.php/jmde_1/article/view/297" target="_blank" rel="noopener noreferrer">Donald T. Campbell, "Assessing the Impact of Planned Social Change"</a>
 - <a href="https://www.nature.com/nature-index/news/measure-for-measure" target="_blank" rel="noopener noreferrer">Nature Index, "Measure for measure"</a>
