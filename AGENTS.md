@@ -1,4 +1,4 @@
-# Signal Compliance — CLAUDE.md
+# Signal Compliance — AGENTS.md
 
 ## What This Is
 A GitHub Actions cron job that makes one plausibly meaningful commit per day to satisfy a visible productivity signal. Commentary on the culture of judging developers by GitHub activity metrics.

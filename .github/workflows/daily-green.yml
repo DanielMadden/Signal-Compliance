@@ -1,4 +1,4 @@
-name: Daily green square
+name: Signal compliance
 
 on:
   schedule:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: daily-green
+  group: signal-compliance
   cancel-in-progress: false
 
 jobs:
@@ -22,11 +22,13 @@ jobs:
 
       - id: ts
         run: |
-          echo "TZ=America/Denver" >> $GITHUB_ENV
+          export TZ=America/Denver
           NOW="$(date +"%Y-%m-%d %H:%M:%S %Z")"
           TODAY="$(date +%F)"
+          DAY_OF_YEAR="$(date +%-j)"
           echo "now=$NOW" >> $GITHUB_OUTPUT
           echo "today=$TODAY" >> $GITHUB_OUTPUT
+          echo "day_of_year=$DAY_OF_YEAR" >> $GITHUB_OUTPUT
 
       - run: |
           FILE=heartbeat.txt
@@ -48,8 +50,17 @@ jobs:
           git config user.name  "$GIT_AUTHOR_NAME"
           git config user.email "$GIT_AUTHOR_EMAIL"
 
+          messages=(
+            "refresh signal baseline"
+            "update continuity ledger"
+            "record operational cadence"
+            "sync activity signal"
+            "maintain visibility marker"
+          )
+          index=$(( ${{ steps.ts.outputs.day_of_year }} % ${#messages[@]} ))
+          message="${messages[$index]} for ${{ steps.ts.outputs.today }}"
+
           git add heartbeat.txt
-          git commit -m "generate daily green on ${{ steps.ts.outputs.today }}" \
+          git commit -m "$message" \
             --author="$GIT_AUTHOR_NAME <$GIT_AUTHOR_EMAIL>"
           git push
-
